@@ -1,0 +1,27 @@
+# team08 phase1.txt
+
+Overview
+
+Our web app is a company management system which allows registered companies to directly manage their company staff or event with our web system. Many small size companies or groups do not have a suitable or completed management system to manage company staff or deal with company agenda. Anyone who just started up their business or wants an intact and comfortable management system can directly use our web app. There are many useful features making convenience to your work experience.
+
+Main Page Instruction
+
+This page is the home page for this web app. The user can see the simple introduction for our website, and they also can search or see what kind of companies are using our management system. If you are new to our web app, you can just click the Signup button, then indicate you are company or employee and fill in the detail information. If you already have an account in this website, just login by type Username and Password. If you forget your password, click the "Forget Password?" Button, then fill in the required information and reset the password.
+
+Admin Page Instruction
+
+This page is designed for higher level of users such as company manager and owner. Users are able to add/delete new employee user to their company system. Users are also able to change company key infos like name, address, start time in this page. A list of users is also shown in this page.
+
+Superadmin Page Instruction
+
+The page is for the super administrator to manage the data of all companies and monitor user activities. Upon completion of the website, the administrator will be able to add/delete/edit the information of company and users from the database. The superadmin will be able to message all users, send files to users as well.
+
+User Page Instruction
+
+This page is designed for normal users. Users can view their personal profile. They also have many options, checking the current status in the group, make announcement to the group, viewing the group member, seeing activities in the group and add files to their pages. Users also can view daily news in company and check the notification for self.
+
+Manager Page Instruction
+
+This page is designed for company/department/group managers. The page has all functions same as the user pages, however, mangers can add task to all group members, delete any group members and edit activities for the group.
+
+Please starting enjoy the Efficient Management !

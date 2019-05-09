@@ -1,0 +1,402 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000000;
+    background-image: url("../img/bglight.png");
+    background-position: center center;
+    background-size: auto 100%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.mt-1em {
+    margin-top: 1em !important;
+}
+
+.ml-1em {
+    margin-left: 1em !important;
+}
+
+hr {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+    border: none;
+    border-bottom: 1.5px solid #FC6121;
+}
+
+.header {
+    margin-top: 2em;
+}
+
+.header .logo {
+    height: 45px;
+}
+
+.header h1 {
+    font-size: 42px;
+    width: 13em;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: .05em solid gray;
+    border-color: #FC6121;
+    margin-bottom: .5em;
+}
+
+.main {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.main .panel {
+    font-size: 20px;
+    border: .1em solid #FC6121;
+    position: relative;
+    background: rgba(255, 255, 255, .5);
+}
+
+.main .panel.panel-left {
+    float: left;
+    margin-left: 20px;
+    width: 310px;
+}
+
+.main .panel.panel-right {
+    float: right;
+    margin-right: 20px;
+    width: 810px;
+}
+
+.main .panel.panel-bottom {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.main ul.operations {
+    font-size: 26px;
+    font-weight: bold;
+    list-style: none;
+    text-align: center;
+}
+
+.main ul.operations li {
+    margin: .5em;
+    text-decoration: underline;
+    padding: .1em 0;
+    border-radius: .5em;
+}
+
+.main ul.operations li.active {
+    color:  #FC6121;
+}
+
+.main ul.operations li:hover {
+    cursor: pointer;
+    color: #FFF;
+    background-color: #FC6121;
+    text-decoration: none;
+}
+
+.main .content-card {
+    display: none;
+}
+
+.main .content-card.active {
+    display: block;
+}
+
+form .inp-grp {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: .5em;
+}
+
+form .inp-grp label {
+    height: 1.5em;
+    font-weight: bold;
+}
+
+form .inp-grp label.label-block {
+    display: block;
+}
+
+form .inp-grp input,
+form .inp-grp textarea,
+form .inp-grp select {
+    font-size: inherit;
+    padding: auto .5em;
+    border: .05em solid #FC6121;
+}
+
+form .inp-grp input[type="text"],
+form .inp-grp input[type="password"],
+form .inp-grp input[type="email"],
+form .inp-grp input[type="tel"],
+form .inp-grp textarea,
+form .inp-grp select {
+    width: 100%;
+    display: block;
+    padding: .5em;
+}
+
+form .inp-grp textarea {
+    resize: none;
+    min-height: 7em;
+}
+
+form .inp-grp input[type="radio"] {
+    vertical-align: middle;
+}
+
+form .inp-grp input:focus,
+form .inp-grp input:active {
+    outline-color: #FC6121;
+}
+
+form .inp-grp .descr {
+    color: #FC6121;
+}
+
+.title {
+    display: block;
+    font-size: 32px;
+    margin-top: .5em;
+    margin-bottom: .75em;
+}
+
+.title.title-center {
+    text-align: center;
+}
+
+.title.title-left {
+    margin-left: .75em;
+}
+
+.subtitle {
+    display: block;
+    font-size: 26px;
+    margin-top: .5em;
+    margin-bottom: .75em;
+}
+
+.subtitle.subtitle-left {
+    margin-left: .75em;
+}
+
+.header .greeting {
+    float: left;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.header .greeting a.logout {
+    font-size: .7em;
+    font-weight: normal;
+    color: #FFF;
+    background-color: #FC6121;
+    text-decoration: none;
+    padding: .1em .5em;
+    border-radius: .5em;
+    margin-left: 1em;
+    border: .1em solid #FC6121;
+}
+
+.header .greeting a.logout:focus,
+.header .greeting a.logout:active {
+    color: inherit;
+}
+
+.header .greeting a.logout:hover {
+    color: #FC6121;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header button.notification {
+    float: right;
+    font-size: 26px;
+    font-weight: bold;
+    border: .075em solid #FC6121;
+    padding: .1em .25em;
+}
+
+.header button.notification:focus,
+.header button.notification:active {
+    outline: none;
+}
+
+.header button.notification:hover {
+    cursor: pointer;
+    color: #FFF;
+    background-color: #FC6121;
+}
+
+.header .notification .num-of-new-notifications {
+    display: inline-block;
+    font-size: 16px;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 50%;
+    color: #FC6121;
+    border: .1em solid #FC6121;
+    vertical-align: middle;
+}
+
+.header button.notification:hover .num-of-new-notifications {
+    color: inherit;
+    border-color: #FFF;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(252, 97, 33, .5);
+}
+
+.modal .panel.panel-modal {
+    width: 500px;
+    margin: 8% auto;
+    padding: 1em 0;
+    background-color: rgba(255, 255, 255, .9);
+    position: relative;
+}
+
+.modal .panel form {
+    width: 100%;
+}
+
+button.submit-look,
+form input[type="submit"] {
+    background-color: #FC6121;
+    color: #FFF;
+    border: none;
+    font-size: inherit;
+    height: 1.75em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border-radius: .5em;
+    border: .1em solid #FC6121;
+}
+
+button.submit-look:focus,
+button.submit-look:active,
+form input[type="submit"]:focus,
+form input[type="submit"]:active {
+    outline: none;
+}
+
+button.submit-look:hover,
+form input[type="submit"]:hover {
+    color: #FC6121;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+
+.main table {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.main table th {
+    border-bottom: .1em solid #FC6121;
+    padding: .35em .25em;
+}
+
+.main table td {
+    word-wrap: break-word;
+    border: .1em solid #FC6121;
+    padding: .25em;
+}
+
+.main table a,
+.main table button,
+ul.notifs li.notif button {
+    font-size: .7em;
+    font-weight: normal;
+    color: #FFF;
+    background-color: #FC6121;
+    text-decoration: none;
+    padding: .1em .5em;
+    border-radius: .5em;
+    border: .1em solid #FC6121;
+}
+
+.main table a:focus,
+.main table button:focus,
+ul.notifs li.notif button:focus,
+.main table a:active,
+.main table button:active,
+ul.notifs li.notif button:active {
+    color: inherit;
+}
+
+.main table a:hover,
+.main table button:hover,
+ul.notifs li.notif button:hover {
+    color: #FC6121;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.prompt {
+    height: 6em;
+    text-align: center;
+}
+
+ul.notifs {
+    list-style: none;
+    margin: .5em;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+ul.notifs li.notif {
+    border: .1em solid #FC6121;
+    padding: .5em;
+    margin: .5em 0;
+}
+
+ul.notifs li.notif .notif-info {
+    font-size: larger;
+    margin-bottom: .5em;
+}
+
+ul.notifs li.notif .notif-date {
+    color: #FC6121;
+    font-style: italic;
+}

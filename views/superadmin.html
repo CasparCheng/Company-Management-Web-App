@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/superadmin.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1><img class="logo" src="img/logo.png" alt="logo"> Efficient Management</h1>
+            <div class="greeting">
+                Hi, <span id="username">{{username}}</span><a class="logout" href="/logout">Logout</a>
+            </div>
+            <button class="notification" id="notification">
+                Notification
+                {{#numNewNotifications}}
+                <span class="num-of-new-notifications" id="num-of-new-notifications">{{numNewNotifications}}</span>
+                {{/numNewNotifications}}
+            </button>
+            <div class="clear-both"></div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="panel panel-left">
+                <h2 class="title title-center">Operation</h2>
+                <ul class="operations">
+                    <li class="switch active" id="profile-switch">Profile</li>
+                    <li class="switch" id="website-info-switch">Website Info</li>
+                    <li class="switch" id="all-companies-switch">All Companies</li>
+                    <li class="switch" id="all-employees-switch">All Employees</li>
+                </ul>
+            </div>
+            <div class="panel panel-right">
+                <div class="content-card active" id="profile">
+                    <h2 class="title title-center">Profile</h2>
+                    <form action="profile-form" id="profile-form" action="/superadmin/profile" method="POST">
+                        <div class="inp-grp">
+                            <label class="label-block">Username *</label>
+                            <input type="text" name="username" id="username-profile" value="{{username}}" readonly
+                                required>
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Password</label>
+                            <input type="password" name="password" id="password-profile">
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Confirm Password</label>
+                            <input type="password" name="confirmPassword" id="confirm-password-profile">
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Address *</label>
+                            <input type="text" name="address" id="address-profile" value="{{address}}" required>
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Email *</label>
+                            <input type="email" name="email" id="email-profile" value="{{email}}" required>
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Phone *</label>
+                            <input type="tel" name="phone" id="phone-profile" value="{{phone}}" required>
+                        </div>
+                        <div class="inp-grp center-text mt-1em">
+                            <input type="submit" value="Submit" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="content-card" id="website-info">
+                    <h2 class="title title-center">Website Info</h2>
+                    <form class="website-info-form" id="website-info-form" action="/website-info" method="POST">
+                        <div class="inp-grp center-text">
+                            <label class="label-block" for="our-company">Our Company</label>
+                            <textarea name="ourCompany" id="our-company" placeholder="...">{{ourCompany}}</textarea>
+                        </div>
+                        <div class="inp-grp center-text">
+                            <label class="label-block" for="pricing">Pricing</label>
+                            <textarea name="pricing" id="pricing" placeholder="...">{{pricing}}</textarea>
+                        </div>
+                        <div class="inp-grp center-text">
+                            <label class="label-block" for="how-to-apply">How To Apply</label>
+                            <textarea name="howToApply" id="how-to-apply" placeholder="...">{{howToApply}}</textarea>
+                        </div>
+                        <div class="inp-grp center-text mt-1em">
+                            <input type="submit" value="Submit" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="content-card" id="all-companies">
+                    <h2 class="title title-center">All Companies</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="companies" id="companies">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="content-card" id="all-employees">
+                    <h2 class="title title-center">All Employees</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Belongs To</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="employees" id="employees">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="clear-both"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="notification-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Notification</h2>
+            <ul class="notifs" id="notifs">
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal" id="company-profile-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Company Profile</h2>
+            <form class="company-profile-form" id="company-profile-form" action="/set-company" method="POST">
+                <div class="inp-grp">
+                    <label class="label-block">Username *</label>
+                    <input type="text" name="username" id="username-company" readonly required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Password</label>
+                    <input type="password" name="password" id="password-company">
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Confirm Password</label>
+                    <input type="password" name="confirmPassword" id="confirm-password-company">
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Address *</label>
+                    <input type="text" name="address" id="address-company" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Email *</label>
+                    <input type="email" name="email" id="email-company" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Phone *</label>
+                    <input type="tel" name="phone" id="phone-company" required>
+                </div>
+                <div class="inp-grp center-text mt-1em">
+                    <input type="submit" value="Submit" required>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="employee-profile-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Emloyee Profile</h2>
+            <form class="employee-profile-form" id="employee-profile-form" action="/set-employee" method="POST">
+                <div class="inp-grp">
+                    <label class="label-block">Username *</label>
+                    <input type="text" name="username" id="username-employee" readonly required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Password</label>
+                    <input type="password" name="password" id="password-employee">
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Confirm Password</label>
+                    <input type="password" name="confirmPassword" id="confirm-password-employee">
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Address *</label>
+                    <input type="text" name="address" id="address-employee" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Email *</label>
+                    <input type="email" name="email" id="email-employee" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Phone *</label>
+                    <input type="tel" name="phone" id="phone-employee" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Belongs To *</label>
+                    <select name="belongsTo" id="belongs-to-employee">
+                    </select>
+                </div>
+                <div class="inp-grp center-text mt-1em">
+                    <input type="submit" value="Submit" required>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/html" id="company-template">
+        {{=<% %>=}}
+        <tr class="company">
+            <td>{{username}}</td>
+            <td>{{address}}</td>
+            <td>{{email}}</td>
+            <td>{{phone}}</td>
+            <td>
+                <button onclick="showCompany('{{username}}')">Edit</button>
+                <button onclick="deleteCompany('{{username}}')">Delete</button>
+            </td>
+        </tr>
+        <%={{ }}=%>
+    </script>
+    <script type="text/html" id="employee-template">
+        {{=<% %>=}}
+        <tr class="company">
+            <td>{{username}}</td>
+            <td>{{address}}</td>
+            <td>{{email}}</td>
+            <td>{{phone}}</td>
+            <td>{{belongsTo}}</td>
+            <td>
+                <button onclick="showEmployee('{{username}}')">Edit</button>
+                <button onclick="deleteEmployee('{{username}}')">Delete</button>
+            </td>
+        </tr>
+        <%={{ }}=%>
+    </script>
+    <script type="text/html" id="company-opt-template">
+        {{=<% %>=}}
+        <option value="{{id}}" {{#selected}} selected{{/selected}}>{{username}} </option>
+        <%={{ }}=%>
+    </script>
+    <script type="text/html" id="notif-template">
+        {{=<% %>=}}
+        <li class="notif">
+            <div class="notif-info">{{info}}</div>
+            <div>
+                <div class="notif-date float-right">{{date}}</div>
+                <button class="float-left" onclick="deleteNotif('{{id}}')">Delete</button>
+                {{^beRead}}
+                <button class="float-left ml-1em" onclick="readNotif('{{id}}')">Mark As Read</button>
+                {{/beRead}}
+            </div>
+            <div class="clear-both"></div>
+        </li>
+        <%={{ }}=%>
+    </script>
+
+    <script src="js/superadmin.js"></script>
+</body>
+
+</html>

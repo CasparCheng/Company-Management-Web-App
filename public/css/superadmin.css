@@ -1,0 +1,11 @@
+form .inp-grp textarea {
+    height: 8em;
+}
+
+.main .panel.panel-left {
+    padding: 0 0 1em 0;
+}
+
+.main .panel.panel-right {
+    padding: 0 0 1em 0;
+}

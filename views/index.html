@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1><img class="logo" src="img/logo.png" alt="logo"> Efficient Management</h1>
+            <!-- TODO: change form behaviour -->
+            <form class="searchbox-form" id="searchbox-form" action="/search" method="POST">
+                <div class="searchbox">
+                    <input type="text" placeholder="Search..." name="keywords" id="keywords" required>
+                    <button type="submit"></button>
+                </div>
+                <div class="clear-both"></div>
+            </form>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container">
+            <div class="panel panel-left">
+                <div class="panel panel-left-top">
+                    <h2 class="title title-center">Login</h2>
+                    <!-- TODO: change form behaviour -->
+                    <form class="login-form" id="login-form" action="/login" method="POST">
+                        <div class="inp-grp">
+                            <label class="label-block">Username</label>
+                            <input type="text" name="username" id="username" required>
+                        </div>
+                        <div class="inp-grp">
+                            <label class="label-block">Password</label>
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <div class="inp-grp center-text login-wrap">
+                            <input type="submit" id="login-btn" value="Login">
+                        </div>
+                    </form>
+                    <div class="login-other-options">
+                        <div class="signup-wrap">
+                            <button class="submit-look" id="signup-btn">Signup</button>
+                        </div>
+                        <div class="forget-password-wrap">
+                            <a href="#" id="reset-password-link">Forget Password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-left-bottom">
+                    <h2 class="title title-center">How To Apply?</h2>
+                    <p>{{howToApply}}</p>
+                </div>
+            </div>
+            <div class="panel panel-right">
+                <h2 class="title title-center">Website Introduction</h2>
+                <hr>
+                <div class="section">
+                    <h3 class="subtitle subtitle-left">Our Company</h3>
+                    <p>{{ourCompany}}</p>
+                </div>
+                <div class="section">
+                    <h3 class="subtitle subtitle-left">Pricing</h3>
+                    <p>{{pricing}}</p>
+                </div>
+            </div>
+            <div class="clear-both"></div>
+            <div class="panel panel-bottom">
+                <h3 class="subtitle subtitle-left">Companies Already Registered ...</h3>
+                <div class="companies">
+                    {{#companies}}
+                    <div class="company">
+                        {{.}}
+                    </div>
+                    {{/companies}}
+                    {{^companies}}
+                    <p>
+                        There is no company registered now ……
+                    </p>
+                    {{/companies}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="signup-dialog-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Signup</h2>
+            <!-- TODO: change form behaviour -->
+            <form class="signup-form" id="signup-form" action="/signup" method="POST">
+                <div class="inp-grp center-text">
+                    <label>
+                        <input type="radio" name="usertype" value="company" checked> Company
+                    </label>
+                    &nbsp; / &nbsp;
+                    <label>
+                        <input type="radio" name="usertype" value="employee"> Employee
+                    </label>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Username *</label>
+                    <input type="text" name="username" id="username-signup" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Password *</label>
+                    <input type="password" name="password" id="password-signup" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Confirm Password *</label>
+                    <input type="password" name="confirmPassword" id="confirm-password" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Address *</label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Email *</label>
+                    <input type="email" name="email" id="email-signup" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Phone *</label>
+                    <input type="tel" name="phone" id="phone" required>
+                </div>
+                <div class="inp-grp center-text mt-1em">
+                    <input type="submit" value="Submit" required>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="reset-password-dialog-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Reset Password</h2>
+            <!-- TODO: change form behaviour -->
+            <form class="reset-password-form" id="reset-password-form" action="/reset-password" method="POST">
+                <div class="inp-grp">
+                    <label class="label-block">Username *</label>
+                    <input type="text" name="username" id="username-reset" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Email *</label>
+                    <input type="email" name="email" id="email-reset" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">New Password *</label>
+                    <input type="password" name="password" id="password-reset" required>
+                </div>
+                <div class="inp-grp">
+                    <label class="label-block">Confirm Password *</label>
+                    <input type="password" name="confirmPassword" id="confirm-password-reset" required>
+                </div>
+                <div class="inp-grp center-text mt-1em">
+                    <input type="submit" value="Submit" required>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="search-results-modal">
+        <div class="panel panel-modal">
+            <h2 class="title title-center">Search Results</h2>
+            <ul class="search-results" id="search-results">
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/html" id="search-result-template">
+        {{=<% %>=}}
+        <li class="search-result">
+            <div class="search-result-usertype">[{{usertype}}]</div>
+            <div class="search-result-username">{{username}}</div>
+        </li>
+        <%={{ }}=%>
+    </script>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

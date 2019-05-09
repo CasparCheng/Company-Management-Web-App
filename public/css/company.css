@@ -1,0 +1,26 @@
+.main .panel.panel-left {
+    padding: 0 0 1em 0;
+}
+
+.main .panel.panel-right {
+    padding: 0 0 1em 0;
+}
+
+form .inp-grp select.members {
+    height: 15em;
+}
+
+button.new-group,
+button.new-task,
+button.new-ann {
+    margin: 1em auto;
+}
+
+.task .tasktype {
+    font-size: .75em;
+    color: #FC6121;
+}
+
+#taskcontent {
+    height: 7em;
+}

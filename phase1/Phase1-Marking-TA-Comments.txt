@@ -1,0 +1,9 @@
+The instructions do not indicate with what credentials I should login with.
+
+The orange text is rather difficult to read on the light colored background. There is a large amount of inconsistency between pages. Overall there is a lack of refinement that should have went into having the pages function and look like a full website. Certain links are broken and lead nowhere.
+
+Website code should not be completely separate for each page. CSS and JS should be shared throughout the site.
+
+There are no indications of where you plan to swap hard coded data for server calls.
+
+There are several consistency issues that make using the site very difficult. Each individual page appears to be completely separate. Many features on these pages don't function.

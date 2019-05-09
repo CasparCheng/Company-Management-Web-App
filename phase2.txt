@@ -1,0 +1,196 @@
+Efficient Management Instruction
+
+Welcome to our company management system -- Efficient Management !
+
+The Web App address is https://cs309-proj.herokuapp.com
+
+There are 4 pages for our website: Home page, employee page, company page, superadmin page.
+
+There are 3 roles for our management system: employee, company(admin or manager or boss), 
+                                             superadmin(website admin).
+
+Login Credentials
+Superadmin account: username: superadmin 
+                    password: 111
+
+There are two companies already regiestered for mock test data -- G00GLE, APPIC COMPUTER INC
+G00GLE company account: username: G00gle
+                        password: 111
+
+APPIC COMPUTER INC account: username: Appic Computer Inc 
+                            password: 111
+
+When you login to these two company, you will see the 'All Employee' operation, 
+click it, then you will see the all employees information. If you want to test any employee account 
+using mock data, the all username for employees of mock data is their names and the all passwords are 111
+
+
+Website Instruction
+
+Home page
+
+Clicking our web app link https://cs309-proj.herokuapp.com to visit our website, then you will see the 
+home page. If you are first time to use the website, please view the website introduction block and 
+'How To Apply' Block.Clicking the orange sign up button, then the small sign up information table will appear,
+select what kind of account you want to create, company or employee, then fill in the required information 
+in the table then click submit, the account successfullly sign up and login automatically to the company
+page or employee page. If you already have a company or employee account just fill in 'Username' and 
+'Passoword' in the 'Login' block on the left side， then click the orange 'Login' button. If you forget 
+the password, click the blue 'Forget Password' button, then a table for reset password will appear, fill in
+the correct account information and the new password you want to reset, then click the orange submit button.
+On the right corner of website, there is a search bar, you can search any company name you want, then click
+the grey magnifying glass in the right of the bar, then it will show a table for the search result. If the
+company already registered, it will appear in the table list, if it did not registered, you will got
+'No entries yet..'. Finally, once you finish sign up a new company account, the company name will show
+in the 'Companies Already Registered..' block in the bottom of the home page.
+
+
+Company page
+
+When you login using company account, you will see the operation block on the left side of this page.
+The operation list:
+
+Profile: Click the 'Profile' button, the big block for the company information will appear in the right
+         side of this page. In the profile block, you can edit the company information, then click submit,
+         and the all company information update and take effect when you login next time.
+
+All Employees: Click the 'All Employees' button， the block for the employees information list will appear in
+               the right side of this page. In the employees list block, you can see the every employee's
+               name，address, email, phone number, and you also can click the orange 'Remove' button to
+               remove the employee.
+
+All Groups: Click the 'All Groups' button, the block for the group information list will appear in
+            the right side of this page. In the group list block, click the orange 'Add New Group' button
+            to create new group, it will show a table form, fiil in the group information you want to
+            create, the group name, and selecy the employees'names which you want him/her become a group
+            member in the member list, then click submit button. After this operation, the new group
+            information will show in the All Groups list block, and you also can click the 'Edit' button
+            to change the group information again, and click the 'Delete' button, you can delete the group.
+
+All Tasks: Click the 'All Tasks; button, the block for the Task information list will appear in the right
+           side of this page. In the task list blcok, click the orange 'Add New Task' button to create a new
+           task, it will show a table form, fill in the new task information you want to create, the task
+           name, task content, and the people you want assigned to, note you can choose the group or
+           individual employee assigned to this task, click the 'Assigned To' list, then you can select.
+           Click the submit button when you finish, after this, you will see the new task information shows
+           in the all tasks list block, and you click the orange 'Cancel' button, then this task will be
+           canceled immediately.
+
+All Announcements: Click the 'All Announcements' button the block for the announcements information list 
+                   will appear in the right side of this page. In the announcements list blcok, click 
+                   the orange 'Add New Announcement' button to create a new announcement, it will show a 
+                   table form， fill in the new announcement information you want to make, the announcement
+                   title, and the announcement content, then click the submit button. After this, you will
+                   see the new announcement information shows in the all announcements list block, and
+                   you click the 'Delete' button, this announcement will be deleted immediately.
+
+Notification: In the right corner of the company page, there is a notification button, it will show the
+              number of all message or operation message for this company page. Clicking the notification
+              button, you can view the content of each message, and there are 'Delete' and
+              'Mark As Read' button you can click, both two buttons will reduce the number of notification
+              once you click, but if you click the 'Delete' button, it will disappear in the notification
+              list, but 'Mark As Read' does not.
+
+Log out: In the left corner of the company page, there is a orange log out button, click it you will
+         log out and back to the home page.
+
+
+
+Employee Page
+
+When you login using employee account, you will see the operation block on the left side of this page.
+The operation list:
+
+Profile: Click the 'Profile' button, the big block for the employee information will appear in the right
+         side of this page. In the profile block, you can edit the employee information, note there is 
+         a 'Belongs To' button to select which company you belongs to, it will show a company list which 
+         are already registered in the web app, and if you choose empty, you wil not belongs to any 
+         company. Then click submit, and the all employee information update and take effect when 
+         you login next time.
+
+All Groups: Click the 'All Groups' button, the block for the group information list will appear in
+            the right side of this page. In the group list block, you can view the list of groups which
+            you belongs to. You can view the company name, group name, group members.
+
+All Tasks: Click the 'All Tasks; button, the block for the Task information list will appear in the right
+           side of this page. In the task list blcok, you can view all tasks inormation you or your groups
+           are assigned to. The task name, task creator, assigned to who(group or employee), content, date.
+
+All Announcements: Click the 'All Announcements' button the block for the announcements information list 
+                   will appear in the right side of this page. In the announcements list block, you can
+                   view the all announcements from your company, including the announcement title, content,
+                   date.
+
+Notification: In the right corner of the employee page, there is a notification button, it will show the
+              number of all message or operation message for this employee page. Clicking the notification
+              button, you can view the content of each message, and there are 'Delete' and
+              'Mark As Read' button you can click, both two buttons will reduce the number of notification
+              once you click, but if you click the 'Delete' button, it will disappear in the notification
+              list, but 'Mark As Read' does not.
+
+Log out: In the left corner of the employee page, there is a orange log out button, click it you will
+         log out and back to the home page.
+
+
+
+Superadmin Page
+
+When you login using superadmin account, you will see the operation block on the left side of this page.
+The operation list:
+
+Profile: Click the 'Profile' button, the big block for the superadmin information will appear in the right
+         side of this page. In the profile block, you can edit the superadmin information, then click submit,
+         and the all superadmin information update and take effect when you login next time.
+
+Website Info: Click the 'Website Info' button, the big block for the website info will appear in the right
+         side of this page. In the website info block, you can edit the content of the website information
+         which show on the home page. 'Our Company' block content, 'Pricing' block content, 'How to Apply'
+         block content. When you finish edit, click the orange submit button in the bottom, it will take
+         effect immediately.
+
+All Companies: Click the 'All Companies' button, the big block for the companies info will appear in 
+               the right side of this page. In the 'All Companies' block, you can view the list of 
+               all companies information which already regiestered, and you have two button in the operation
+               list, one is 'Edit button', click it you can edit this company information including password
+               , another one is 'Delete' button, click it the company will directly be deleted in this 
+               website.
+
+All Employees: Click the 'All Employees' button, the big block for the employees info will appear in 
+               the right side of this page. In the 'All Employees' block, you can view the list of 
+               all employees information which already regiestered, and you have two button in the operation
+               list, one is 'Edit button', click it you can edit this employee information including password
+               , another one is 'Delete' button, click it the employee will directly be deleted in this 
+               website.
+
+Notification: In the right corner of the superadmin page, there is a notification button, it will show the
+              number of all message or operation message for this superadmin page. Clicking the notification
+              button, you can view the content of each message, like the user activities and there are 
+              'Delete' and 'Mark As Read' button you can click, both two buttons will reduce the number of
+              notification once you click, but if you click the 'Delete' button, it will disappear in the 
+              notification list, but 'Mark As Read' does not.
+
+Log out: In the left corner of the superadmin page, there is a orange log out button, click it you will
+         log out and back to the home page.
+
+
+
+Alert/Operation information box:
+
+All operation above in each page, every operation success will appear a box from browser on the top.
+The box shows “Operation succeeds", this means the operation you make successfullly, just click blue
+'OK' button in the box to continue using web app.
+It also will show a unsuccessfully operation, for example, you login a unregistered account, the box will
+show "No such user exists"， and lick blue 'OK' button in the box to continue using web app.
+
+
+Overview of the routes
+We have a routes folder including 5 js files which related to the routes.
+common.js file is authenticate the user role (employee, company or superadmin)
+company.js file is the route for any operations(GET / and  POST /company/profile....) from database.
+employee.js file is the route for any operations(GET / and  POST /employee/profile....) from database.
+index.js file is the route for any operations(GET / and  POST signup/login/logout....) from database.
+superadmin.js file is the route for any operations(GET / and  POST /superadmin/profile....) from database.
+
+
+Thank you for using Efficient Management by team08.
+Enjoy your management !
